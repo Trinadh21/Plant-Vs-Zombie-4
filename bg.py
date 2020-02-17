@@ -2,40 +2,40 @@ import pygame
 from config import*
 
 def draw(pl,score,pre,update):
-    window.fill((0,0,0))
-    font = pygame.font.SysFont("comicsans", 60, True)
+    window.fill(blackBackground)
+    font = pygame.font.SysFont(fontType, fontSize2, True)
     if pl==2:
-        text1 = font.render("WELL DONE,Player"+str(1),1, (255,255,255))
-        text2= font.render("Your total score is: "+str(score),1, (255,255,255))
-        window.blit(text1, (200, 200))  
-        window.blit(text2, (300, 350))
+        text1 = font.render(appreciationPlayer1,1, whiteBackground)
+        text2= font.render(scorePlayer1+str(score),1,whiteBackground) 
+        window.blit(text1, (winWidth/6, (2*winHeight)/7))  
+        window.blit(text2, (winWidth/4, (9*winHeight)/10))
         if update==1:
-            text5 = font.render("You are eligible for level update",1, (255,255,255))
-            window.blit(text5, (0,400))
+            text5 = font.render(eligiblityConvey,1, whiteBackground)
+            window.blit(text5, (0,(400*winHeight)/660))
             
     else:
         if pre>score:
-            text1 = font.render("WELL tried,You lost(Player2)",1, (255,255,255))
-            text2 = font.render("FINAL STATS",1, (255,255,255))
-            text3 = font.render("Player1: "+str(pre),1, (255,255,255))
-            text4 = font.render("Player2: "+str(score),1, (255,255,255))        
+            text1 = font.render(appreciationPlayer2,1, whiteBackground)
+            text2 = font.render(stats,1, whiteBackground)
+            text3 = font.render(player1+str(pre),1,whiteBackground)
+            text4 = font.render(player2+str(score),1,whiteBackground)         
         elif pre==score:
-            text1 = font.render("Congratulations,match drawn(Player2)",1, (255,255,255))
-            text2 = font.render("FINAL STATS",1, (255,255,255))
-            text3 = font.render("Player1: "+str(pre),1, (255,255,255))
-            text4 = font.render("Player2: "+str(score),1, (255,255,255))
+            text1 = font.render(tiePlayer2,1, whiteBackground)
+            text2 = font.render(stats,1, whiteBackground)
+            text3 = font.render(player1+str(pre),1, whiteBackground)
+            text4 = font.render(player2 +str(score),1, whiteBackground)
         else :
-            text1 = font.render("Fantastic performance,You Won(player2)",1, (255,255,255))
-            text2 = font.render("FINAL STATS",1, (255,255,255))
-            text3 = font.render("Player1: "+str(pre),1, (255,255,255))
-            text4 = font.render("Player2: "+str(score),1, (255,255,255))              
-        window.blit(text1, (175, 200))  
-        window.blit(text2, (175, 350))
-        window.blit(text3, (200, 400))  
-        window.blit(text4, (200, 450))
+            text1 = font.render(appreciationWinner,1, whiteBackground)
+            text2 = font.render(stats,1, whiteBackground)
+            text3 = font.render(player1+str(pre),1, whiteBackground)
+            text4 = font.render(player2+str(score),1, whiteBackground)              
+        window.blit(text1, ((175*winWidth)/1200, (200*winHeight)/660))  
+        window.blit(text2, ((175*winWidth)/1200, (350*winHeight)/660))
+        window.blit(text3, ((200*winWidth)/1200, (400*winHeight)/660))  
+        window.blit(text4, ((200*winWidth)/1200, (450*winHeight)/660))
         if update==1:
-            text5 = font.render("You are eligible for level update",1, (255,255,255))
-            window.blit(text5, (0,500))
+            text5 = font.render(eligiblityConvey,1, whiteBackground)
+            window.blit(text5, (0,(500*winHeight)/660))
   
     pygame.display.update()
     pygame.time.wait(3500)

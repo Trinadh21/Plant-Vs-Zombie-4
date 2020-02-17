@@ -18,6 +18,7 @@ class Enemy():
         self.vel1=3
         self.vel2=3
         self.vel=3
+        self.velInitial=3
         self.start=start
         self.wc=0
         self.hitbox = (self.x + 17, self.y + 14, 29, 60)   
