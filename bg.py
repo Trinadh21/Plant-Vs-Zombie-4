@@ -2,6 +2,8 @@ import pygame
 from config import*
 
 def draw(pl,score,pre,update):
+    if update==1:
+        score+=(10*(score))//65
     window.fill(blackBackground)
     font = pygame.font.SysFont(fontType, fontSize2, True)
     if pl==2:

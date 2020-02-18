@@ -22,6 +22,8 @@ var=0
 flag=0
 count=0
 pre=0
+music=pygame.mixer.music.load('ZombieMusic.mp3')
+pygame.mixer.music.play(-1)
 menuPage()
 while run:
     
@@ -149,14 +151,14 @@ while run:
                 if man.check == 1:
                     man.x=600
                     man.y=590
-                    for i in vil:
-                        i.vel=i.velInitial*(i.level1)
+                    for i1 in vil:
+                        i1.vel=i1.velInitial*(i1.level1)
                     
                 else:
                     man.x=300
                     man.y=-13
                     for i1 in vil:
-                        i1.vel=i.velInitial*(i1.level2)
+                        i1.vel=i1.velInitial*(i1.level2)
                 man.hitbox = (man.x + 17, man.y + 11, 29, 52)
                 for i1 in coins:
                     i1.x=i1.px 
@@ -191,12 +193,12 @@ while run:
                     man.x=600
                     man.y=590
                     for i1 in vil:
-                        i1.vel=i.velInitial*(i1.level1)
+                        i1.vel=i1.velInitial*(i1.level1)
                 else:
                     man.x=300
                     man.y=-13
                     for i1 in vil:
-                        i1.vel=i.velInitial*(i1.level2)
+                        i1.vel=i1.velInitial*(i1.level2)
                 for i1 in coins:
                     i1.x=i1.px 
                     i1.y=i1.py
@@ -240,13 +242,17 @@ while run:
         #score=score*vil[0].level2
         p=2
     if flag==1:
-        redrawTheWindow(score,var,count,p,pre)
+        if p==1:
+            redrawTheWindow(score,var,count,p,pre,vil[0].level1)
+        else:
+            redrawTheWindow(score,var,count,p,pre,vil[0].level2)
+            
     else:
         var=pygame.time.get_ticks()-time
         if p==1:
-            redrawTheWindow(score*vil[0].level1,var,count,p,pre)
+            redrawTheWindow(score*vil[0].level1,var,count,p,pre,vil[0].level1)
         else:
-            redrawTheWindow(score*vil[0].level2,var,count,p,pre)
+            redrawTheWindow(score*vil[0].level2,var,count,p,pre,vil[0].level2)
             
     # print("pre")
     # print(p)
